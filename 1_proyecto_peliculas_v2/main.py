@@ -2,7 +2,7 @@
 #Notas: 
 #Utilizar funciones y mandar llamar desde otro archivo
 #Utilizar dict oara almacenar los atributos (nombre, categoria, clasificacion, genero, idioma) de peliculas
-import.pelicula
+import peliculas
 
 opcion=True
 
@@ -15,27 +15,38 @@ while opcion:
     match opcion:
         case "1":
             peliculas.crearPeliculas()
-            peliculas.esperaeTecla()
+            peliculas.espereTecla()
+            peliculas.borrarPantalla()
         case "2":
             peliculas.borrarPeliculas
-            peliculas.esperarTecla()
+            peliculas.espereTecla()
+            peliculas.borrarPantalla()
         case "3":
             peliculas.mostrarPeliculas()
-            peliculas.esperarTecla()
+            peliculas.espereTecla()
+            peliculas.borrarPantalla()
         case "4":
             peliculas.agregarPeliculas()
             peliculas.espereTecla()
+            peliculas.borrarPantalla()
         case "5":
             peliculas.modificarCaracteristicaPeliculas()
             peliculas.espereTecla()
+            peliculas.borrarPantalla()
         case "6":
             peliculas.borrarCaracteristicaPeliculas()
             peliculas.espereTecla()
-        case "7":
-            opcion=False
             peliculas.borrarPantalla()
-            print("\n\tTerminaste la ejecucion del Sistema... Gracias...")
-        case "8":
+        case "7":
+            peliculas.borrarPantalla()
+            print("\n\tTerminaste la ejecución del sistema \n\t\t -\|Gracias|/-")
+            opcion=False
+            peliculas.espereTecla()
+            peliculas.borrarPantalla()
+        case _:
+             peliculas.borrarPantalla()
+             print("\n\tOpción inválida, vuelva a intentarlo")
+             opcion=True
 
            
 

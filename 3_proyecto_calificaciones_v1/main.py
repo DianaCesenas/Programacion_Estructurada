@@ -19,7 +19,14 @@ def main():
                 calificaciones.calcular_promedios(datos)
                 calificaciones.esperarTecla()
             case "4":
-                opcion = False
+                calificaciones.borrarPantalla()
+                print("\tSe ha terminado la ejecución del sistema\n\n\t\t ::Muchas gracias::")
+                calificaciones.esperarTecla()
+                opc=False
+            case _:
+                calificaciones.borrarPantalla()
+                print("\tOpcion invalida, por favor vuelva a intentarlo\n")
+                opc=True
 
 
 

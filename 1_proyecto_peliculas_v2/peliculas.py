@@ -6,6 +6,7 @@
           #"idioma":""}
 
 pelicula = {}
+
 def borrarPantalla():
     import os
     os.system("Clear")
@@ -36,81 +37,82 @@ def agregarPeliculas():
 def mostrarPeliculas():
  borrarPantalla()
  print("\n\t ...Mostrar las peliculas...")
- if len(pelicula)>0:
-    for i in range (0, len(pelicula)):
-        print(f" {i+1} : Las peliculas disponibles en es sistema son: {pelicula[i]} ")
+ if len(pelicula) > 0:
+    for i in pelicula:
+     print(f" {i} : Las peliculas disponibles en es sistema son: {pelicula[i]} ")
+     print("\n\n\t ||| LA OPERACIÓN SE REALIZÓ CON ÉXITO |||")
     else:
-        print("\n\t ...No hay peliculas en este momento en el sistema...")   
-
-
-#def buscarPeliculas():
- #borrarPantalla()
- #print("\n\t\t .::: BUSCAR PELICULAS :::.\n")
- #pelicula_buscar=input("Ingrese el nombre de la pelicula a buscar: ").upper().strip()
- #if not (pelicula_buscar in peliculas):
-   #print("\n\t....Esta pelicula no se encuentra en el sistema...")
- #else:
-     #encontro=0
-     #for i in range(0,len(peliculas)):
-            #if pelicula_buscar==peliculas[i]:
-                #print(f"\n\tla pelicula {pelicula_buscar} se encontro en el casillero: {i+1}")
-                #encontro+=1
-     #print(f"\n\t Tenemos {encontro} pelicula(s) con este titulo")
-     #print("\n\t\t...LA OPERACION SE REALIZO CON EXITO...")
-
-
-#def limpiarPeliculas():
-    #borrarPantalla()
-    #print("\n\t ...Limpair o borrar TODAS las peliculas...\n")
-    #resp=input("Deseas borrar todas las peliculas del sistema? (Si/No)").lower().strip()
-    #if resp=="si":
-        #peliculas.clear()
-        #print("\n\t\t ::: ¡LA OPERACION SE REALIZO CON EXITO! :::")
-
-def modificarPeliculas():
- borrarPantalla()
- print("\n\t ...Modificar peliculas...")
- pelicula_buscar=input("Ingrese el nombre de la pelicula que desea buscar: ").upper().strip()
- encontro=0
- if not (pelicula_buscar in pelicula):
-  print("\n\t....Esta pelicula no se encuentra en el sistema...")
- else:
-     for i in range(0,len(pelicula)):
-        if pelicula_buscar==peliculas[i]:
-            resp=input("Deseas actualizar la pelicula? (Si/No)").lower()
-
+        print("\n---La lista se encuentra vacía---\n")
+       
 def borrarPeliculas():
- borrarPantalla()
- print("\n\t ...Borrar peliculas...")
- borrarPantalla()
- print("\n\t ...Mostrar las peliculas...")
- if len(pelicula)>0:
-    resp = input("Deseas borrar o quitar la pelicula? (Si/No)").lower().strip()
-    if resp =="si":
-     pelicula.clear()
-    else:
-        print("\n\t ...No hay peliculas en este momento en el sistema...")   
-
-
-def agregarCaracteristicaPeliculas():
-   borrarPantalla()
-   print("\n\t .::Agregar una caracteristica de Pelicula::.\n")
-   atributo = input("Ingresa el nombre de la nueva caracteristica que deseas agregar: ").lower().strip()
-   valor_atributo = input("Ingresa el valor de la nueva caracteristica que deseas agregar: ").upper().strip()
-   pelicula.update({atributo:valor_atributo}) 
-   print("\n\t\t...LA OPERACION SE REALIZO CON EXITO...") 
-
-def modificarCaracteristicaPeliculas():
     borrarPantalla()
-    print("\n\t.::Modificar una característica de Película::.\n")
-    if len(pelicula)>0:
-        for i in pelicula:
-            print(pelicula[i])
-            op=input("¿Deseas modificar este atributo?: ").lower().strip()
-            if op=="si":
-                pelicula[i]=input(".::Introduce el nuevo nombre del atributo: ").lower().strip()
-                print("\n\t\t :::¡LA OPERACION SE REALIZÓ CON ÉXITO!:::")
+    print("\n\t\t-.::Borrar película::./-")
+    if len(pelicula) > 0:
+        resp="a"
+        while resp!="si" and resp!="no":
+            resp=input("\n\n\t\t¡¡CUIDADO!!\n\n¿Desea borrar la película registrada?\n(si/no): ").lower().strip()
+            match resp:
+                case "si":
+                    pelicula.clear()
+                    print("\n\t .::LA OPERACIÓN SE REALIZÓ CON ÉXITO::.")
+                case "no":
+                    print("\n\t--Operacion cancelada--")
+                case _:
+                    borrarPantalla()
+                    print("Operación no válida, vuelva a intentarlo")
+                    print("\n\t\t-.::Borrar película::.-")
+                    resp="a"
     else:
-        borrarPantalla()
+        print("\n---No se puede borrar porque no hay película en el sistema---")      
+
+def agregarCaracteristica():
+    borrarPantalla()
+    opc="si"
+    print("\n\t\t .::Agregar características a la película::.\n")
+    while opc=="si":
+        cate=input("Ingrese la característica a agregar: ").lower().strip()
+        pelicula.update({cate:input(f"Ingrese el valor de la característica {cate}: ").lower().strip()})
+        opc="¿Desea agregar alguna otra característica?\n(si/no): " 
+    print("\n\t --LA OPERACIÓN SE REALIZÓ CON ÉXITO--")        
+       
+def modificarCaracteristicaPelicula():
+    borrarPantalla()
+    print("\n\t\t-\|Modificar características a la película|/-\n")
+    if len(pelicula) > 0:
+        for i in pelicula:
+            print(f"valor actual de {i}: {pelicula[i]}")
+            opc=input(f"¿Desea modificar el valor del {i}?\n(si/no): ").lower().strip()
+            if opc=="si":
+                if i=="clasificacion":
+                    pelicula[i]=input(f"Ingrese el nuevo valor del {i}: ").upper().strip()
+                else:
+                    pelicula[i]=input(f"Ingrese el nuevo valor del {i}: ").lower().strip()
+        
+        print("\n\t --LA OPERACIÓN SE REALIZÓ CON ÉXITO--")
+    else:
+        print("\n---No se puede modificar porque no hay película en el sistema---")   
+
+def borrarCaracteristicaPeliculas():
+    borrarPantalla()
+    print("\n\t\t .:Borrar una caracterísitica a la película::. \n")
+    if len(pelicula) > 0:
+        print("\tValores actuales:")
+        for i in pelicula:
+            print(f"{i} : {pelicula[i]}")
+        opc=input("\n¿Desea borrar alguna característica? \n(si/no): ").lower().strip()
+        match opc:
+            case "si":
+                cara=input("Ingresa la característica a borrar/quitar: ").lower().strip()
+                if cara in pelicula:
+                    pelicula.pop(cara)
+                    print("\n\t ¡¡LA OPERACIÓN SE REALIZÓ CON ÉXITO!!")
+                else:
+                    print("--No se encuentra la característica anterior--")
+            case "no":
+                print("\n\t--Operacion Cancelada--")
+            case _:
+                print("\n\t--La opción no es correcta--")
+    else:
+        print("\n - No es posible borrar, sistema vacio -")
 #strip es para eliminar espacios
 #len funcion que te saca el tamano

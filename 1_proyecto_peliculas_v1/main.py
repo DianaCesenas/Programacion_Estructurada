@@ -3,7 +3,7 @@
 #Utilizar funciones y mandar llamar desde otro archivo
 #Utilizar listas oara almacenar los nombres de peliculas
 
-import.peliculas
+import peliculas
 
 opcion=True
 
@@ -16,31 +16,34 @@ while opcion:
     match opcion:
         case "1":
             peliculas.agregarPeliculas()
-            peliculas.esperaeTecla()
+            peliculas.esperarTecla()
+            peliculas.borrarPantalla()
         case "2":
             peliculas.borrarPeliculas
             peliculas.esperarTecla()
         case "3":
             peliculas.modificarPeliculas()
             peliculas.esperarTecla()
+            peliculas.borrarPantalla()
         case "4":
             peliculas.mostrarPeliculas()
             peliculas.espereTecla()
+            peliculas.borrarPantalla()
         case "5":
             peliculas.buscarPeliculas()
             peliculas.espereTecla()
+            peliculas.borrarPantalla()
         case "6":
             peliculas.limpiarPeliculas()
             peliculas.espereTecla()
+            peliculas.borrarPantalla()
         case "7":
-            opcion=False
             peliculas.borrarPantalla()
             print("\n\tTerminaste la ejecucion del Sistema... Gracias...")
-        case "8":
-
-           
-
-
-
-
-           
+            opcion=False
+            peliculas.espereTecla()
+            peliculas.borrarPantalla()
+        case _:
+            peliculas.BorrarPantalla()
+            print("\n\tOpción inválida, vuelva a intentarlo")
+            opcion=True
