@@ -1,0 +1,45 @@
+#Crear un proyecto que permita gestionar, administrar peliculas  colocar un menu de opciones para agrgar, borrar, modificar mostrar, buscar, vaciar, limpiar una lista de peliculas 
+#Notas: 
+#Utilizar funciones y mandar llamar desde otro archivo
+#Utilizar dict oara almacenar los atributos (nombre, categoria, clasificacion, genero, idioma) de peliculas
+import.pelicula
+
+opcion=True
+
+while opcion:
+    peliculas.borrarPantalla()
+    print("\n\t\t\t.::: Gestion de peliculas:::. \n\n\t 1.-Crear\n\n\t 2.-Borrar \n\n\t 3.-Mostrar\n\n\t 4.-Agregar\n\n\t 5.-Modificar caracteristica\n\n\t 6.-Borrar\n\n\t 7.-Salir")
+
+    opcion=input("\n\n\t Elige una opcion: ").upper()
+
+    match opcion:
+        case "1":
+            peliculas.crearPeliculas()
+            peliculas.esperaeTecla()
+        case "2":
+            peliculas.borrarPeliculas
+            peliculas.esperarTecla()
+        case "3":
+            peliculas.mostrarPeliculas()
+            peliculas.esperarTecla()
+        case "4":
+            peliculas.agregarPeliculas()
+            peliculas.espereTecla()
+        case "5":
+            peliculas.modificarCaracteristicaPeliculas()
+            peliculas.espereTecla()
+        case "6":
+            peliculas.borrarCaracteristicaPeliculas()
+            peliculas.espereTecla()
+        case "7":
+            opcion=False
+            peliculas.borrarPantalla()
+            print("\n\tTerminaste la ejecucion del Sistema... Gracias...")
+        case "8":
+
+           
+
+
+
+
+           
