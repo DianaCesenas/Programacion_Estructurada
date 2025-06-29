@@ -47,7 +47,7 @@ def BorrarPeliculas():
         print(f"\nSe borraron {cont} películas con el título {nomb}")
         print("\n\t |||¡La operación se realizó con éxito!|||")
 
-def ModificarPeliculas():
+def modificarCaracteristicaPeliculas():
     BorrarPantalla()
     print("\n\t -\| Modificar películas |/-\n")
     nomb=input("Ingrese el nombre de la película: ").lower().strip()
